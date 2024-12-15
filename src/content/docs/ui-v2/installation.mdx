@@ -1,0 +1,128 @@
+---
+title: Installation
+sidebar: {
+    order: 2
+}
+---
+## How to Properly Install the UI Resource
+To ensure the resource is correctly installed and functioning, follow these steps:
+
+import { Aside, Code, Steps, Tabs, TabItem, FileTree} from '@astrojs/starlight/components'
+
+<Steps>
+
+1. **Download the Resource**  
+   Download the UI resource from the [Keymaster site](https://keymaster.fivem.net/).
+
+2. **Add the Resource to Your Server**
+    Drag the downloaded resource into your main `/resources` directory.
+
+3. **Update Your Configuration File**
+    Open your `server.cfg` (or use txAdmin > CFG Editor) and do the following:  
+  
+    Add the following line to ensure the new UI resource starts:  
+    ```plaintext
+    ensure ZSX_UI
+    ```
+    this should be placed somewhere after your framework's `ensure` line. best at the bottom of the file.
+
+4. **Configure**
+
+    Open the `config` files and configure the UI to your liking.
+
+5. **Start Your Server**
+    Launch your server and enjoy the resource!
+
+</Steps>
+
+## Important Notes for Configuration
+
+### Welcome Screen
+
+If you're using a loading screen with manual shutdown and want to manually close it, follow these steps:
+
+Open this file
+
+<FileTree>
+- ZSX_UIV2
+ - shared
+  - config_loadingscreen.lua
+</FileTree>
+
+and change the following line:
+
+```lua
+Config.AwaitShutdownLoadingScreen = true
+```
+This will allow you to manually close the loading screen.
+
+### Chat
+
+To use our chat system, you need to start ZSX_UIV2 before your framework to ensure proper functionality.
+
+You can start the ZSX_UIV2 resource right before your framework. By default, for QBCore, follow these steps:
+<Tabs> 
+<TabItem label ="QB-Core/Qbox"> 
+
+<Steps>
+1. Open your `server.cfg` file.
+2. Add the following line **before** the `ensure qb-core` or `ensure [qb]` line:
+```plaintext
+ensure ZSX_UIV2
+```
+
+</Steps>
+
+This ensures that ZSX_UIV2 loads first.
+
+<Aside type="caution"> 
+If you have set the ZSX_UIV2 directory to be inside /resources/[qb] , it will not work! Make sure ZSX_UIV2 is placed outside of that directory for proper functionality.
+</Aside>
+
+</TabItem>
+
+<TabItem label ="ESX"> 
+
+<Steps>
+1. Open your `server.cfg` file.
+2. Add the following line **before** the `ensure es_extended` or `ensure [core]` line:
+```plaintext
+ensure ZSX_UIV2
+```
+
+</Steps>
+
+This ensures that ZSX_UIV2 loads first.
+
+<Aside type="caution">
+If you have set the ZSX_UIV2 directory to be inside /resources/[core], it will not work! Make sure ZSX_UIV2 is placed outside of that directory for proper functionality.
+</Aside>
+
+
+### ZSX_Multicharacter
+
+If you're using the ZSX_Multicharacter resource, you need to change the following line in the
+
+<FileTree>
+- ZSX_UIV2
+ - shared
+  - config.lua
+</FileTree>
+
+file:
+
+```lua
+ZSX_Multicharacter = 'MY_CHANGED_MULTICHARACTER'
+```
+
+Replace `MY_CHANGED_MULTICHARACTER` with the name of your resource. and then after that you need to change the following line aswell
+
+```lua
+Config.CustomInitialization = true
+```
+
+This will ensure that the ZSX_Multicharacter resource is loaded correctly. After that just restart the server and you should be good to go.
+
+<Aside type="note">
+If you're using the ZSX_Multicharacter resource, you need to ensure that the ZSX_UIV2 resource is started before the ZSX_Multicharacter resource.
+</Aside>
