@@ -31,20 +31,20 @@ export default defineConfig({
 			components: {
 				ThemeSelect: './src/components/EmptyThemeSelect.astro',
 			},
-
-			defaultLocale: 'root', // Set the default locale to 'root'
-			locales: {
-				root: {
-					label: 'English',
-					lang: 'en',
-				},
-				de: {
-					label: 'Deutsch',
-				},
-				pl: {
-					label: 'Polski',
-				},
-			},
+			// localization disabled for now
+			// defaultLocale: 'root', // Set the default locale to 'root'
+			// locales: {
+			// 	root: {
+			// 		label: 'English',
+			// 		lang: 'en',
+			// 	},
+			// 	de: {
+			// 		label: 'Deutsch',
+			// 	},
+			// 	pl: {
+			// 		label: 'Polski',
+			// 	},
+			// },
 
 			sidebar: [
 
