@@ -10,32 +10,35 @@ To ensure the resource is correctly installed and functioning, follow these step
 import { Aside, Code, Steps, Tabs, TabItem, FileTree} from '@astrojs/starlight/components'
 
 <Steps>
-
-1. **Download the Resource**  
-   Download the UI resource from the [Keymaster site](https://keymaster.fivem.net/).
-
-2. **Add the Resource to Your Server**
-    Drag the downloaded resource into your main `/resources` directory.
-
-3. **Update Your Configuration File**
-    Open your `server.cfg` (or use txAdmin > CFG Editor) and do the following:  
-  
-    Add the following line to ensure the new UI resource starts:  
-    ```plaintext
-    ensure ZSX_UI
-    ```
-    this should be placed somewhere after your framework's `ensure` line. best at the bottom of the file.
-
-4. **Configure**
-
-    Open the `config` files and configure the UI to your liking.
-
-5. **Start Your Server**
-    Launch your server and enjoy the resource!
-
+  <ol>
+    <li>
+      **Download the Resource**  
+      Download the UI resource from the [Keymaster site](https://keymaster.fivem.net/).
+    </li>
+    <li>
+      **Add the Resource to Your Server**  
+      Drag the downloaded resource into your main `/resources` directory.
+    </li>
+    <li>
+      **Update Your Configuration File**  
+      Open your `server.cfg` (or use txAdmin > CFG Editor) and do the following:  
+      Add the following line to ensure the new UI resource starts:  
+      <pre><code>ensure ZSX_UIV2</code></pre>
+      This should be placed somewhere after your framework's `ensure` line, preferably at the bottom of the file.
+    </li>
+    <li>
+      **Configure**  
+      Open the `config` files and configure the UI to your liking.
+    </li>
+    <li>
+      **Start Your Server**  
+      Launch your server and enjoy the resource!
+    </li>
+  </ol>
 </Steps>
 
-## Important Notes for Configuration
+
+## Important Notes for Installation
 
 ### Welcome Screen
 
@@ -45,8 +48,8 @@ Open this file
 
 <FileTree>
 - ZSX_UIV2
- - shared
-  - config_loadingscreen.lua
+  - shared
+    - config_loadingscreen.lua
 </FileTree>
 
 and change the following line:
@@ -65,13 +68,17 @@ You can start the ZSX_UIV2 resource right before your framework. By default, for
 <TabItem label ="QB-Core/Qbox"> 
 
 <Steps>
-1. Open your `server.cfg` file.
-2. Add the following line **before** the `ensure qb-core` or `ensure [qb]` line:
-```plaintext
-ensure ZSX_UIV2
-```
-
+  <ol>
+    <li>
+      Open your <code>server.cfg</code> file.
+    </li>
+    <li>
+      Add the following line <strong>before</strong> the <code>ensure qb-core</code> or <code>ensure [qb]</code> line:
+      <pre><code>ensure ZSX_UIV2</code></pre>
+    </li>
+  </ol>
 </Steps>
+
 
 This ensures that ZSX_UIV2 loads first.
 
@@ -84,19 +91,26 @@ If you have set the ZSX_UIV2 directory to be inside /resources/[qb] , it will no
 <TabItem label ="ESX"> 
 
 <Steps>
-1. Open your `server.cfg` file.
-2. Add the following line **before** the `ensure es_extended` or `ensure [core]` line:
-```plaintext
-ensure ZSX_UIV2
-```
-
+  <ol>
+    <li>
+      Open your <code>server.cfg</code> file.
+    </li>
+    <li>
+      Add the following line <strong>before</strong> the <code>ensure es_extended</code> or <code>ensure [core]</code> line:
+      <pre><code>ensure ZSX_UIV2</code></pre>
+    </li>
+  </ol>
 </Steps>
+
 
 This ensures that ZSX_UIV2 loads first.
 
 <Aside type="caution">
 If you have set the ZSX_UIV2 directory to be inside /resources/[core], it will not work! Make sure ZSX_UIV2 is placed outside of that directory for proper functionality.
 </Aside>
+
+</TabItem>
+</Tabs>
 
 
 ### ZSX_Multicharacter
@@ -105,24 +119,53 @@ If you're using the ZSX_Multicharacter resource, you need to change the followin
 
 <FileTree>
 - ZSX_UIV2
- - shared
-  - config.lua
+  - shared
+    - config.lua
 </FileTree>
 
 file:
 
-```lua
-ZSX_Multicharacter = 'MY_CHANGED_MULTICHARACTER'
-```
+<Code code="ZSX_Multicharacter = 'MY_CHANGED_MULTICHARACTER'" lang="lua" ins="MY_CHANGED_MULTICHARACTER">
+
+</Code>
 
 Replace `MY_CHANGED_MULTICHARACTER` with the name of your resource. and then after that you need to change the following line aswell
 
-```lua
-Config.CustomInitialization = true
-```
+
+
+<Code code="Config.CustomInitialization = true" lang="lua" ins="true">
+
+</Code>
 
 This will ensure that the ZSX_Multicharacter resource is loaded correctly. After that just restart the server and you should be good to go.
 
-<Aside type="note">
-If you're using the ZSX_Multicharacter resource, you need to ensure that the ZSX_UIV2 resource is started before the ZSX_Multicharacter resource.
+
+if you use any other multicharacter resource, you need to change the following line in the 
+<FileTree>
+- ZSX_UIV2
+  - shared
+    - config.lua
+</FileTree>
+
+<Code code="Config.CustomInitialization = true" lang="lua" ins="true">
+</Code>
+
+This will disable the Auto Initialization (Welcome Screen) and you need to manually initialize the UI with the following Event
+
+
+# Auto Installer
+
+The UI resource includes an auto-installer for the UI into `ox_lib` and Frameworks. This feature is still in development and you can use it by using these commands:
+/install_ox_lib_compatibility
+and
+/install_qb_core_compatibility
+
+to install the UI into the respective scripts so that it works when using their functions.
+
+<Aside type="caution">
+The auto-installer is still in development and may not work as expected.
 </Aside>
+
+
+
+
