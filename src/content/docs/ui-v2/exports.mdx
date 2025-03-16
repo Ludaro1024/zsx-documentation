@@ -8,6 +8,7 @@ import { Aside, Tabs, TabItem, LinkCard, CardGrid, Code } from '@astrojs/starlig
 
 <Tabs>
 <TabItem label = "Features">
+## Features
 <Tabs>
 <TabItem label = "Notifiy">
 
@@ -447,7 +448,7 @@ local serial = exports['ZSX_UIV2']:AddPoint(icon, coords, text, options)`} lang=
  <TabItem label = "Radar">
 <Code code={`exports['ZSX_UIV2']:DisplayRadar(boolean, force)`} lang="lua"> </Code>
 
-## Arguments
+#### Arguments
 
 | Argument        | Type     | Description                                      | Optional |
 |-----------------|----------|--------------------------------------------------|----------|
@@ -484,18 +485,26 @@ To get the color of a player, use the following function:
 
 <Tabs>
 <TabItem label = "Default HUD">
+### Get HudType
 <Code code={`exports['ZSX_UIV2']:GetHudType()`} lang="lua"> </Code>
 </TabItem>
 <TabItem label = "Car HUD">
+### GetCarHudType
 <Code code={`exports['ZSX_UIV2']:GetCarHudType())`} lang="lua"> </Code>
 </TabItem>
+
 <TabItem label = "Notification">
+### GetNotificationType
 <Code code={`exports['ZSX_UIV2']:GetNotificationType()`} lang="lua"> </Code>
 </TabItem>
+
 <TabItem label = "Help Notification">
+### GetHelpNotificationType
 <Code code={`exports['ZSX_UIV2']:GetHelpNotificationType()`} lang="lua"> </Code>
 </TabItem>
+
 <TabItem label = "Progressbar">
+### GetProgressbarType
 <Code code={`exports['ZSX_UIV2']:GetProgressBarType()`} lang="lua"> </Code>
 </TabItem>
 
@@ -507,32 +516,42 @@ To get the color of a player, use the following function:
 <TabItem label ="Options">
 <Tabs>
 <TabItem label = "Default HUD">
-<Code code={`xports['ZSX_UIV2']:GetHudOptions()`} lang="lua"> </Code>
+### GetHudOptions
+<Code code={`exports['ZSX_UIV2']:GetHudOptions()`} lang="lua"> </Code>
 </TabItem>
+
 <TabItem label = "Car HUD">
+### GetCarHudOptions
 <Code code={`exports['ZSX_UIV2']:GetCarHudOptions()`} lang="lua"> </Code>
 </TabItem>
 <TabItem label = "Notification">
-<Code code={`exports['ZSX_UIV2']:GetNotficiationOptions())`} lang="lua"> </Code>
+### GetNotificationOptions
+<Code code={`exports['ZSX_UIV2']:GetNotficiationOptions()`} lang="lua"> </Code>
 </TabItem>
 <TabItem label = "Help Notification">
+### GetHelpNotficiationOptions
 <Code code={`exports['ZSX_UIV2']:GetHelpNotficiationOptions()`} lang="lua"> </Code>
 </TabItem>
 <TabItem label = "Progressbar">
+### GetProgressBarOptions
 <Code code={`exports['ZSX_UIV2']:GetProgressBarOptions()`} lang="lua"> </Code>
 </TabItem>
 </Tabs>
 </TabItem>
 <TabItem label="Is Configuration Done">
+### IsConfigurationDone
 <Code code={`exports['ZSX_UIV2']:IsConfigurationDone()`} lang="lua"> </Code>
 </TabItem>
 <TabItem label ="Get Current Screen">
+### GetCurrentScreen
 <Code code={`exports['ZSX_UIV2']:GetCurrentScreen()`} lang="lua"> </Code>
 </TabItem>
 <TabItem label ="UIBusy">
+### IsUIBusy
 <Code code={`exports['ZSX_UIV2']:IsUIBusy()`} lang="lua"> </Code>
 </TabItem>
 <TabItem label ="PauseMenuActive">
+### IsPauseMenuActive
 <Code code={`exports['ZSX_UIV2']:IsPauseMenuActive()`} lang="lua"> </Code>
 </TabItem>
 </Tabs>
@@ -540,17 +559,22 @@ To get the color of a player, use the following function:
 
 </TabItem>
 <TabItem label="Opening Menus">
+## Menus
 <Tabs>
 <TabItem label ="Open Configuration Menu">
+### Open Configuration Menu
 <Code code={`exports['ZSX_UIV2']:OpenConfiguration()`} lang="lua"> </Code>
 </TabItem>
 <TabItem label ="Open Main Menu">
+### Open Main Menu
 <Code code={`exports['ZSX_UIV2']:OpenMainMenu()`} lang="lua"> </Code>
 </TabItem>
 <TabItem label ="Open Settings Menu">
+### Open Settings Menu
 <Code code={`exports['ZSX_UIV2']:OpenSettings()`} lang="lua"> </Code>
 </TabItem>
 <TabItem label ="Open Cinematic Menu">
+### Open Cinematic Menu
 <Code code={`exports['ZSX_UIV2']:Cinematic()`} lang="lua"> </Code>
 </TabItem>
 </Tabs>

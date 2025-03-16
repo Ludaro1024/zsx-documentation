@@ -112,6 +112,23 @@ If you have set the ZSX_UIV2 directory to be inside /resources/[core], it will n
 </TabItem>
 </Tabs>
 
+### How to Remove Displayers (Money HUD, Citizen ID, Job)
+
+Displayers are the small sections typically located at the top right of the UI by default (including Money HUD, Citizen ID, and Job).
+
+To remove them, simply disable them in the configuration file:
+<FileTree>
+- ZSX_UIV2
+  - shared
+    - ui_cfg
+     - config_displayer.lua
+</FileTree>
+
+<Code code="Config.Displayer.Use = false" lang="lua" ins="false">
+
+</Code>
+
+
 
 ### ZSX_Multicharacter
 
